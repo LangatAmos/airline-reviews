@@ -15,9 +15,9 @@ class ReviewsController < ApplicationController
     # POST /reviews
     def create
         new_review = Review.create!(review_params)
-        render json: new_review.to_json(only: [:id, :title, :comment], include: [user: {only: [:id, :username]}, airline: {only: [:id, :name]}])
+        render json: new_review.to_json(only: [:id, :title, :comment], include: [user: {only: [:id, :username]}, airline: {only: [:id, :name]}]), status: ok
     rescue ActiveRecord::RecordInvalid => invalid
-        render json: {errors: invalid.record.errors.full_messages}
+        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
 
     # PATCH/PUT /reviews

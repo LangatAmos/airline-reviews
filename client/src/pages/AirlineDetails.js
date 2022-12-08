@@ -11,6 +11,8 @@ function AirlineDetails(props){
     const [airline, setAirline] = useState([]);
     const [review, setReview] = useState({});
 
+    const [errors, setErrors] = useState([]);
+
 
     const {id} = useParams()
 
@@ -43,9 +45,16 @@ function AirlineDetails(props){
                 },
                 body: JSON.stringify({...review, airline_id, user_id})
             })
-        .then(response => response.json())
-        .then((data)=> setAirline(data))
-    }
+        .then((response) => {
+            if (response.ok){
+            response.json().then((data)=> setAirline(data));
+            // response.json().then((data)=> console.log(data));
+            } else {
+                response.json().then((err) => setErrors(Object.entries(err.errors).flat()));
+                response.json().then((err) => console.log(Object.entries(err.errors).flat()));
+            }
+            });
+        }
 
     function handleDelete(id){
         // console.log(id)
@@ -88,6 +97,7 @@ function AirlineDetails(props){
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
                 name={airline.name}
+                errors={errors}
                 />
             </div>
             

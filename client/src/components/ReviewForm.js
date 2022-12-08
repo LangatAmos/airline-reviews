@@ -1,10 +1,8 @@
 import React from "react";
-import { Button, Input, FormField, Label } from "../styles";
+import { Button, Input, FormField, Label, Error } from "../styles";
 import styled from "styled-components";
 
 function ReviewForm (props){
-
-
 
     return (
         <Form onSubmit={props.handleSubmit}>
@@ -31,8 +29,15 @@ function ReviewForm (props){
             onChange={props.handleChange}
             />
             </FormField>
+        
             <FormField>
                 <Button type="submit">Submit Review</Button>
+            </FormField>
+
+            <FormField>
+                {props.errors.map((err) => (
+                <Error key={err}>{err}</Error>
+                ))}
             </FormField>
         </Form>
     )

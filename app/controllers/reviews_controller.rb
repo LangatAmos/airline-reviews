@@ -29,6 +29,13 @@ class ReviewsController < ApplicationController
         render json: {errors: invalid.record.errors.full_messages}
     end
 
+    # DELETE /reviews/:id
+    def destroy
+        review = find_review
+        review.destroy
+        head :no_content, status: :ok
+    end
+
     private
     def find_review
         Review.find(params[:id])

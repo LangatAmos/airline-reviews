@@ -20,19 +20,14 @@ function AirlineDetails(props){
         .then(response => response.json())
         .then((airline) => setAirline(airline))
         // .then((airline) => console.log(airline.reviews))
-    },[id])
-
-    const reviews = airline.reviews
-    reviews?.map((rev)=>{
-        return (rev.title)
-    })
-
+    },[id, airline])
+    
     function handleChange(e){
         e.preventDefault()
         // console.log('name:', e.target.name, 'comment:', e.target.value)
         setReview(Object.assign({}, review, {[e.target.name]: e.target.value}))
 
-        console.log("review:", review)
+        // console.log("review:", review)
     }
 
     function handleSubmit(e){
@@ -50,11 +45,18 @@ function AirlineDetails(props){
             })
         .then(response => response.json())
         .then((data)=> setAirline(data))
-
     }
 
+    function handleDelete(id){
+        // console.log(id)
+        fetch(`/reviews/${id}`,{
+            method: 'DELETE'
+        })
+        // .then(response => response.json())
+        .then(()=>alert("review deleted successfully"))
+        .catch(err => console.log(err))
 
-
+    }
 
 
     return (
@@ -66,13 +68,14 @@ function AirlineDetails(props){
 
             <ReviewListTitle>Reviews for {airline.name}</ReviewListTitle>
             
-            <ReviewList>{  reviews?.map((rev, index)=>{
+            <ReviewList>{  airline.reviews?.map((rev, index)=>{
                     return (
-                        <div key={index}>
+                        <ReviewItem key={index}>
                             <h5>{rev.title}</h5>
                             <p>{rev.comment}</p>
                             <User>By: {rev.user.username}</User>
-                        </div>
+                            <span><DeleteBtn onClick={()=>handleDelete(rev.id)}>delete</DeleteBtn></span>
+                        </ReviewItem>
                     )
                 })
                 }
@@ -133,6 +136,21 @@ const User = styled.p`
 color: #5618f5;
 font-style: italic;
 `
+
+const DeleteBtn = styled.button`
+border-radius: 3px;
+background-color: red;
+color: #fff;
+cursor: pointer;
+border: 0px solid;
+font-size: 15px;
+`
+const ReviewItem = styled.div`
+margin: 10px;
+padding: 10px;
+line-height: 1.5em;
+`
+
 
 
 export default AirlineDetails;

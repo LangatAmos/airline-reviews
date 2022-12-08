@@ -10,7 +10,6 @@ function Login({ onLogin }) {
     return (
         <Wrapper>
         <Logo>Airline Reviews App</Logo>
-        <h1 id="login-title">Honest, Unbiased airline reviews. Share your experience</h1>
         {showLogin ? (
             <>
             <LoginForm onLogin={onLogin} />

@@ -20,7 +20,7 @@ function AirlineDetails(props){
         .then(response => response.json())
         .then((airline) => setAirline(airline))
         // .then((airline) => console.log(airline.reviews))
-    },[])
+    },[id])
 
     const reviews = airline.reviews
     reviews?.map((rev)=>{

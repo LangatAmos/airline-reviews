@@ -42,4 +42,9 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_message
     def airline_params
         params.require(:airline).permit(:name, :image_url, :description)
     end
+
+    # Get a specific airline
+    def airline
+        @airline ||= Airline.includes(reviews: :user).find_by(id: params[:id])
+    end
 end

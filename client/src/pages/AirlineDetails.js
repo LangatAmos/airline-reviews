@@ -84,6 +84,7 @@ function AirlineDetails(props){
                 <ReviewForm
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
+                name={airline.name}
                 />
             </div>
             

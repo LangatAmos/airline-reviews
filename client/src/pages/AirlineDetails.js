@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import Review from '../components/Review';
 import ReviewForm from '../components/ReviewForm';
 import styled from "styled-components";
 
@@ -72,7 +71,7 @@ function AirlineDetails(props){
                         <div key={index}>
                             <h5>{rev.title}</h5>
                             <p>{rev.comment}</p>
-                            <p>By: {rev.user.username}</p>
+                            <User>By: {rev.user.username}</User>
                         </div>
                     )
                 })
@@ -80,14 +79,12 @@ function AirlineDetails(props){
                 {/* <Review reviews = {reviews}/> */}
             </ReviewList>
 
-            <h2>create new review</h2>
 
             <div>
                 <ReviewForm
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
                 />
-
             </div>
             
         </Wrapper>
@@ -95,8 +92,8 @@ function AirlineDetails(props){
 }
 
 const Wrapper = styled.div`
-max-width: 100%;
-margin: 30px;
+max-width: 80%;
+margin: 30px auto;
 flex-wrap: wrap;
 `;
 
@@ -110,7 +107,7 @@ font-size: 1em;
 
 const ReviewListTitle = styled.h4`
 font-size: 1.5em;
-color: blue;
+color: #5618f5;
 `;
 
 const AirlineDescription = styled.p`
@@ -118,14 +115,23 @@ font-size: 1.5em;
 line-height: 1.5em;
 `
 const DetailsImage = styled.img`
-border-radius: 3px;
-width: 100%
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 50%
 `
 const DetailsTtitle = styled.h1`
-text-align: center
+text-align: center;
 font-size: 2em;
-color: blue;
+color: #5618f5;
 padding: 0.5em;
 `
+
+const User = styled.p`
+color: #5618f5;
+font-style: italic;
+`
+
 
 export default AirlineDetails;

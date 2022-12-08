@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { Button, Error, Input, FormField, Label } from "../styles";
+import React from "react";
+import { Button, Input, FormField, Label } from "../styles";
 import styled from "styled-components";
-import AirlineCard from "./AirlineCard";
 
 function ReviewForm (props){
 

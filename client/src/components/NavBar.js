@@ -18,8 +18,8 @@ function NavBar({ user, setUser }) {
             <Link to="/airlinespage">Airline Reviews App</Link>
         </Logo>
         <Nav>
-            <Button as={Link} to="/airlinedetails">
-                Details
+            <Button as={Link} to="/airlinespage">
+                Home
             </Button>
         <Button variant="outline" onClick={handleLogoutClick}>
             Logout
@@ -40,7 +40,7 @@ function NavBar({ user, setUser }) {
     const Logo = styled.h1`
     font-family: "Audiowide", cursive;
     font-size: 2.5rem;
-    color: blue;
+    color: #5618f5;
     margin: 0;
     line-height: 1;
 

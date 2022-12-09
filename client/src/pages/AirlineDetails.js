@@ -47,15 +47,13 @@ function AirlineDetails(props){
             })
         .then((response) => {
             if (response.ok){
-            response.json().then((data)=> setAirline(data));
-            // response.json().then((data)=> console.log(data));
+            response.json().then((data)=> setAirline(data))
             } else {
                 response.json().then((err) => setErrors(Object.entries(err.errors).flat()));
-                response.json().then((err) => console.log(Object.entries(err.errors).flat()));
             }
-            });
+            })
+            review.reset({})
         }
-
     function handleDelete(id){
         // console.log(id)
         fetch(`/reviews/${id}`,{

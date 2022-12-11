@@ -1,11 +1,10 @@
 import React from 'react';
 import { Button } from "../styles";
 import { Link } from "react-router-dom";
-
 export default function AirlineCard ({id, name, image_url, description, handleClick, ...props }){
 
-    // const [airline, setAirline] = useState([]);
-    // const [reviews, setReviews] = useState([]);
+    const [airline, setAirline] = useState([]);
+    const [reviews, setReviews] = useState([]);
 
 
     // console.log(props.airline.image_url)

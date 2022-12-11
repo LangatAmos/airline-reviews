@@ -22,7 +22,7 @@ function AirlinesPage(props) {
             <ul className="cards">
             {airlines.map((airline) => {
 
-                const {id, name, image_url } = airline
+                const {id, name, image_url ,description} = airline
 
                 return <AirlineCard key={id} 
                 id={id}
@@ -48,5 +48,9 @@ function AirlinesPage(props) {
     margin: 30px;
     flex-wrap: wrap;
     `;
+
+    const Airline = styled.article`
+    margin-bottom: 25px;
+`;
 
 export default AirlinesPage;

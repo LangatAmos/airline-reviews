@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Box, Button } from "../styles";
+import { Button } from "../styles";
 import AirlineCard from "../components/AirlineCard"
 
 function AirlinesPage(props) {
@@ -22,7 +22,7 @@ function AirlinesPage(props) {
             <ul className="cards">
             {airlines.map((airline) => {
 
-                const {id, name, image_url ,description} = airline
+                const {id, name, image_url } = airline
 
                 return <AirlineCard key={id} 
                 id={id}
@@ -48,9 +48,5 @@ function AirlinesPage(props) {
     margin: 30px;
     flex-wrap: wrap;
     `;
-
-    const Airline = styled.article`
-    margin-bottom: 25px;
-`;
 
 export default AirlinesPage;

@@ -1,5 +1,8 @@
 ## Airline Reviews Web App
 This is a monolith app, intended to be a simple example of a CRUD app built with Ruby on Rails and React.js. It's postgresql database and a simple react frontend that can be used to interact with the database.
+## Links
+backend: https://airline-reviews-production.up.railway.app
+frontend: https://airline-reviews-react.vercel.app/
 ## This API uses:
 Ruby version 2.7.4 
 Rails version 7.0.4 Database postgresql
